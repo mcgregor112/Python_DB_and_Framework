@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer List</title>
+    <!-- Add Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Container for the Developer List -->
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-center text-indigo-600 mb-8">Developer List</h1>
+
+        <!-- Developer Table -->
+        <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+            <thead>
+                <tr class="bg-indigo-100 text-left">
+                    <th class="px-6 py-4 text-sm font-medium text-gray-900">Name</th>
+                    <th class="px-6 py-4 text-sm font-medium text-gray-900">Specialist</th>
+                    <th class="px-6 py-4 text-sm font-medium text-gray-900">Experience</th>
+                    <th class="px-6 py-4 text-sm font-medium text-gray-900">Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Developer in Developer %}
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-6 py-4 text-sm text-gray-700">{{ Developer.name }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-700">{{ Developer.specialist }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-700">{{ Developer.experiance }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-700">{{ doctor.contect }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4" class="px-6 py-4 text-center text-sm text-gray-700">No Developer found.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <header class="bg-blue-500 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">My Website</h1>
+            <nav>
+                <a href="{% url 'profile_view' %}" class="text-white hover:underline px-4">Profile</a>
+                <a href="{% url 'register_view' %}" class="text-white hover:underline px-4">Logout</a>
+                <!-- Add Delete Account link -->
+                {% if user and user.id %}
+                <a href="{% url 'delete_account' id=user.id %}" class="text-red-500 hover:underline">Delete Account</a>
+            {% else %}
+                <p class="text-red-500">Cannot delete account: Missing ID</p>
+            {% endif %}
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold text-gray-800 text-center">Welcome to the Home Page</h2>
+        <p class="text-gray-600 text-center mt-4">Explore the features by navigating through the links in the navbar.</p>
+    </main>
+</body>
+</html>
+
